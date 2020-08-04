@@ -6,6 +6,8 @@ import {
   setListCompleted,
 } from '../../Redux/Actions/Todo_Actions'
 
+import TestHome from '../Home/index'
+
 const TodoList = (props) => {
   const inputEle = useRef(null)
   const TodoList = props.lists.todoLists
@@ -15,17 +17,14 @@ const TodoList = (props) => {
     // 相当于 componentDidMount
     return () => {
       console.log('componentWillUnmount')
-      // useEffect的 第一个参数有 返回函数时，
+      // useEffect的 第1个参数有 返回函数时，
+      // 第2个参数为 [] 时
       // 相当于 componentWillUnmount
     }
   }, [])
 
   useEffect(() => {
     inputEle.current.value = null
-    return () => {
-      console.log('componentWillUnmount2')
-      // 这相当于 componentWillUnmount
-    }
   }, [props.lists.todoLists])
 
   const addItem = () => {
@@ -48,6 +47,7 @@ const TodoList = (props) => {
 
   return (
     <div>
+      <TestHome></TestHome>
       <h5>我将做这些事情</h5>
       <hr />
       <div>
@@ -59,7 +59,6 @@ const TodoList = (props) => {
         />{' '}
         <button onClick={addItem}>添加计划</button>
       </div>
-
       <ul>
         {TodoList && TodoList.length
           ? TodoList.map((v, index) => {

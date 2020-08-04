@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Main from '../Pages/Main'
 
+import Home from '../Pages/Home/index'
 import TodoList from '../Pages/Todo/index'
 
 const App = () => {
@@ -21,7 +22,3 @@ const App = () => {
   )
 }
 export default App
-
-function Home() {
-  return <h2>Home</h2>
-}
